@@ -1,7 +1,6 @@
 # 使用瀏覽器開發者工具執行 JavaScript 代碼
 
-本指南適用於不熟悉城市（開發）工具的使用者，將指導您如何在瀏覽器的開發者工具中執行 JavaScript 代碼。
-
+本指南適用於不熟悉程式（開發）工具的使用者
 ---
 
 ## **步驟 1：打開瀏覽器的開發者工具**
@@ -87,10 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
 請確保您已打開瀏覽器開發者工具，並選擇 `Console` 分頁。
 
 ### **2. 貼上代碼後沒有反應？**
-- 請確保您已在 Console 中貼上完整代碼。
+- 請確保您已在 Console 中貼上完整code。
 - 確認該網頁載入完成後再執行。
 
-### **3. 執行代碼後沒有彈出確認框？**
+### **3. 執行code後沒有彈出確認框？**
 - 可能網頁中的 `<ul class="area-list">` 不存在或未加載。
 - 嘗試在 `document.addEventListener("DOMContentLoaded", ... )` 之外直接執行代碼。
 
