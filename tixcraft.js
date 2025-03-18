@@ -1,3 +1,4 @@
+
 // 按 F12 打開開發者工具 複製以下code 貼在console
 // 移除指定的 header 和 mobileWizard
 document.querySelector("#header")?.remove();
@@ -20,7 +21,7 @@ allLists.forEach(ul => {
   let listItems = ul.querySelectorAll("li");
   nonGreyOnlyCount = nonGreyOnlyCount + listItems.length;
 });
-console.log(`%c 還有${nonGreyOnlyCount}區有座位`, "color: white; background-color: #007acc;", allLists);
+console.log(`%c 還有${nonGreyOnlyCount}區有座位`, "font-weight: bold; font-size: 50px;color: white; background-color: #007acc;", allLists);
 
 // 當所有 ul 都是灰色時，才跳出 confirm 並重新整理
 if (nonGreyOnlyCount <= 0) {
