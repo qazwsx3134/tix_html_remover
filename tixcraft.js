@@ -12,37 +12,18 @@ document.querySelectorAll(".area-list li").forEach(li => {
     }
 });
 
-let shouldReload = false;
-
 let allLists = document.querySelectorAll("ul.area-list"); // 所有區塊的 ul
-let totalLists = allLists.length;
-let greyOnlyCount = 0; // 計算全灰色 <ul> 的數量
+
+let nonGreyOnlyCount = 0; // 計算非灰色 <ul> 的數量
 
 allLists.forEach(ul => {
   let listItems = ul.querySelectorAll("li");
-  let isAllGrey = true; // 假設這個 <ul> 內的 <li> 都是灰色的
-
-  listItems.forEach(li => {
-    let fonts = li.querySelectorAll('font[color="#AAAAAA"]');
-    let hasOtherContent = li.childNodes.length > fonts.length; // 是否有非 <font color="#AAAAAA"> 的元素
-
-    
-
-    if (hasOtherContent) {
-      isAllGrey = false; // 這個 <ul> 內部有非灰色內容
-    } else {
-    	li.remove(); // 刪除純灰色的 <li>
-    }
-
-  });
-
-  if (isAllGrey) {
-    greyOnlyCount++; // 這個 <ul> 內部全部是灰色，計數 +1
-  }
+  nonGreyOnlyCount = nonGreyOnlyCount + listItems.length;
 });
+console.log(`%c 還有${nonGreyOnlyCount}區有座位`, "color: white; background-color: #007acc;", allLists);
 
 // 當所有 ul 都是灰色時，才跳出 confirm 並重新整理
-if (greyOnlyCount === totalLists) {
+if (nonGreyOnlyCount <= 0) {
   let confirmReload = confirm("所有區域均已售完，是否重新整理頁面？");
   if (confirmReload) {
     location.reload();
