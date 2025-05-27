@@ -35,46 +35,7 @@
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {
-    // 移除 <header id="header">
-    let header = document.getElementById("header");
-    if (header) header.remove();
-
-    // 移除 <div id="mobileWizard">
-    let mobileWizard = document.getElementById("mobileWizard");
-    if (mobileWizard) mobileWizard.remove();
-
-    // 取得所有 <ul.area-list>
-    let allLists = document.querySelectorAll("ul.area-list");
-    let totalLists = allLists.length;
-    let greyOnlyCount = 0; // 計算全灰色 <ul> 的數量
-
-    allLists.forEach(ul => {
-        let listItems = ul.querySelectorAll("li");
-        let isAllGrey = true; // 假設這個 <ul> 內的 <li> 都是灰色的
-
-        listItems.forEach(li => {
-            let fonts = li.querySelectorAll('font[color="#AAAAAA"]');
-            let hasOtherContent = li.childNodes.length > fonts.length; // 是否有非 <font color="#AAAAAA"> 的元素
-
-            if (!hasOtherContent) {
-                li.remove(); // 刪除純灰色的 <li>
-            } else {
-                isAllGrey = false; // 這個 <ul> 內部有非灰色內容
-            }
-        });
-
-        if (isAllGrey) {
-            greyOnlyCount++; // 這個 <ul> 內部全部是灰色，計數 +1
-        }
-    });
-
-    // 當所有 ul 都是灰色時，才跳出 confirm 並重新整理
-    if (greyOnlyCount === totalLists) {
-        let confirmReload = confirm("所有區域均已售完，是否重新整理頁面？");
-        if (confirmReload) {
-            location.reload();
-        }
-    }
+    // 從檔案裡面複製的code
 });
 ```
 
